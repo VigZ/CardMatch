@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CardShape:Int {
+enum CardShape:Int, CaseIterable {
     case circle = 0
     case square
     case triangle
@@ -17,3 +17,4 @@ enum CardShape:Int {
     case star
     case oval
 }
+

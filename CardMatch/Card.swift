@@ -12,5 +12,5 @@ import UIKit
 struct Card {
     var shape: CardShape
     var image: UIImage
-    var flipped: Bool
+    var flipped: Bool = false
 }

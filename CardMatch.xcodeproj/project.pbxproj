@@ -14,9 +14,9 @@
 		809E336124FAC42E00D09034 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 809E335F24FAC42E00D09034 /* LaunchScreen.storyboard */; };
 		809E336924FAC55800D09034 /* CardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809E336824FAC55800D09034 /* CardCollectionViewController.swift */; };
 		809E336B24FAD6CB00D09034 /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809E336A24FAD6CB00D09034 /* Difficulty.swift */; };
-		809E337324FAE1F000D09034 /* CardShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809E337224FAE1F000D09034 /* CardShape.swift */; };
 		809E337524FAE27800D09034 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809E337424FAE27800D09034 /* Card.swift */; };
 		809E337724FAE95F00D09034 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809E337624FAE95F00D09034 /* CardCollectionViewCell.swift */; };
+		809E337924FB0C9D00D09034 /* CardShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809E337824FB0C9D00D09034 /* CardShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +29,9 @@
 		809E336224FAC42E00D09034 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		809E336824FAC55800D09034 /* CardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewController.swift; sourceTree = "<group>"; };
 		809E336A24FAD6CB00D09034 /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
-		809E337224FAE1F000D09034 /* CardShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardShape.swift; sourceTree = "<group>"; };
 		809E337424FAE27800D09034 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		809E337624FAE95F00D09034 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		809E337824FB0C9D00D09034 /* CardShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +69,8 @@
 				809E336824FAC55800D09034 /* CardCollectionViewController.swift */,
 				809E337624FAE95F00D09034 /* CardCollectionViewCell.swift */,
 				809E337424FAE27800D09034 /* Card.swift */,
-				809E337224FAE1F000D09034 /* CardShape.swift */,
 				809E336A24FAD6CB00D09034 /* Difficulty.swift */,
+				809E337824FB0C9D00D09034 /* CardShape.swift */,
 				809E335A24FAC42400D09034 /* Main.storyboard */,
 				809E335D24FAC42E00D09034 /* Assets.xcassets */,
 				809E335F24FAC42E00D09034 /* LaunchScreen.storyboard */,
@@ -150,12 +150,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				809E337924FB0C9D00D09034 /* CardShape.swift in Sources */,
 				809E335524FAC42400D09034 /* AppDelegate.swift in Sources */,
 				809E336924FAC55800D09034 /* CardCollectionViewController.swift in Sources */,
 				809E337524FAE27800D09034 /* Card.swift in Sources */,
 				809E336B24FAD6CB00D09034 /* Difficulty.swift in Sources */,
 				809E337724FAE95F00D09034 /* CardCollectionViewCell.swift in Sources */,
-				809E337324FAE1F000D09034 /* CardShape.swift in Sources */,
 				809E335724FAC42400D09034 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

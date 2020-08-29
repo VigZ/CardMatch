@@ -20,10 +20,21 @@ class CardCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+       
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if difficulty == nil {
+            promptDifficulty()
+        }
     }
 
     /*
@@ -38,18 +49,10 @@ class CardCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        guard difficulty != nil else {
-            return 0
-        }
-        return difficulty.rawValue
+
+        return playing_cards.count
+        
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -58,6 +61,38 @@ class CardCollectionViewController: UICollectionViewController {
         // Configure the cell
     
         return cell
+    }
+    
+    func chooseDifficulty(action: UIAlertAction){
+        switch action.title {
+        case "Easy":
+            difficulty = Difficulty.easy
+        case "Medium":
+            difficulty = Difficulty.medium
+        case "Hard":
+            difficulty = Difficulty.hard
+        default:
+            difficulty = Difficulty.medium
+        }
+        createPairs()
+        collectionView.reloadData()
+    }
+    
+    func promptDifficulty(){
+        let ac = UIAlertController(title: "Choose a difficulty.", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Easy", style: .default, handler: chooseDifficulty))
+        ac.addAction(UIAlertAction(title: "Medium", style: .default, handler: chooseDifficulty))
+        ac.addAction(UIAlertAction(title: "Hard", style: .default, handler: chooseDifficulty))
+        present(ac, animated: true)
+    }
+    
+    func createPairs() {
+        for _ in 0...(difficulty.rawValue/2){
+            let randomShape = Int.random(in: 0..<CardShape.allCases.count)
+            for _ in 0...2 {
+                playing_cards.append(Card(shape:randomShape, image: UIImage(named:)))
+            }
+        }
     }
 
     // MARK: UICollectionViewDelegate

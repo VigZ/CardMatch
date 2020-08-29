@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum Difficulty: Int {
-    case easy = 4
+enum Difficulty: Int, CaseIterable {
+    case easy = 4 // This raw value is the number of cards in the game. The pairs are half of that.
     case medium = 8
     case hard = 12
 }
