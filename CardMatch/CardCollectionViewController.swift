@@ -123,6 +123,13 @@ class CardCollectionViewController: UICollectionViewController {
         if first_flip == nil {
             first_flip = (playing_cards[indexPath.item], indexPath)
         }
+        else if first_flip?.1.item == indexPath.item {
+             let cell1 = collectionView.cellForItem(at: indexPath) as! CardCollectionViewCell
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            cell1.flip()
+            }
+            return
+        }
             
          else if first_flip?.0.shape.rawValue == playing_cards[indexPath.row].shape.rawValue {
             let cell1 = collectionView.cellForItem(at: indexPath) as! CardCollectionViewCell
