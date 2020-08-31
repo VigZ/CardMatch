@@ -16,16 +16,18 @@ class CardCollectionViewController: UICollectionViewController {
     
     var playing_cards = [Card]()
     
-    var score = 0{
+    var correct_pairs = 0
+    
+    var chancesRemaining = 0 {
         didSet {
-            
+           self.title = "Chances: \(chancesRemaining)"
         }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.prefersLargeTitles = true
         
        
         
@@ -67,8 +69,10 @@ class CardCollectionViewController: UICollectionViewController {
         cell.image.layer.borderWidth = 2
         cell.image.layer.borderColor = UIColor.black.cgColor
         cell.image.image = playing_cards[indexPath.row].image
+        
         if !playing_cards[indexPath.row].face_up{
             cell.image.isHidden = true
+            cell.cardBack.isHidden = false
         }
         
         cell.cardBack.layer.borderWidth = 2
@@ -89,6 +93,8 @@ class CardCollectionViewController: UICollectionViewController {
             difficulty = Difficulty.medium
         }
         createPairs()
+        self.chancesRemaining = difficulty.rawValue - 2
+    
         collectionView.reloadData()
     }
     
@@ -113,6 +119,7 @@ class CardCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView,
                                  didSelectItemAt indexPath: IndexPath){
         playing_cards[indexPath.item].face_up = !playing_cards[indexPath.item].face_up
+        
         if first_flip == nil {
             first_flip = (playing_cards[indexPath.item], indexPath)
         }
@@ -122,6 +129,8 @@ class CardCollectionViewController: UICollectionViewController {
             let cell2 = collectionView.cellForItem(at: first_flip!.1) as! CardCollectionViewCell
             cell1.fade()
             cell2.fade()
+            correct_pairs += 2
+            
             first_flip = nil
             
             }
@@ -137,10 +146,26 @@ class CardCollectionViewController: UICollectionViewController {
                 }
 
             first_flip = nil
+            chancesRemaining -= 1
             
             
         }
+        if chancesRemaining <= 0 || correct_pairs >= difficulty.rawValue {
+            endGame()
+        }
         
+    }
+    
+    func endGame(){
+        playing_cards = []
+        correct_pairs = 0
+        first_flip = nil
+        let ac = UIAlertController(title: "Game Over!", message: "Would you like to play again?", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default) { [unowned self] _ in
+                self.promptDifficulty()
+                self.collectionView?.reloadData()
+        })
+        present(ac, animated: true)
     }
     
 
